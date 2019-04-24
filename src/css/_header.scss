@@ -1,0 +1,24 @@
+$headerHeight: 90px;
+$headerImageHeight: 40px;
+$headerPaddingY: ($headerHeight - $headerImageHeight) / 2;
+
+.header {
+    background-color: #fff;
+    border-bottom: 2px solid #ee7033;
+    height: $headerHeight / 2;
+    padding: $headerPaddingY / 2 $paddingX / 2;
+    box-shadow: 0 1px 1px #968f84;
+    .header-img {
+        height: $headerImageHeight / 2;
+    }
+}
+
+@media (min-width: 700px) and (min-height: 500px) {
+    .header {
+        height: $headerHeight;
+        padding: $headerPaddingY $paddingX;
+        .header-img {
+            height: $headerImageHeight;
+        }
+    }
+}

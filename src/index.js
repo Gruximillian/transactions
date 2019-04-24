@@ -1,3 +1,3 @@
 import './css/style.scss';
-
-console.log('the bundle log!');
+import logo from './assets/logo.jpg';
+import background from './assets/background.jpg';

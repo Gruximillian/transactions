@@ -1,6 +1,5 @@
-body {
-    background-color: orange;
-    h1 {
-        background-color: red;
-    }
-}
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+@import 'variables';
+@import 'header';
+@import 'base';
