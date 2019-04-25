@@ -68,7 +68,7 @@ function isNumber(value) {
     const isFloat = value.indexOf('.') !== -1;
     const decimalPart = isFloat && value.split('.')[1];
     const decimals = decimalPart && decimalPart.length;
-    const number = isFloat ? parseFloat(value).toFixed(decimals) : parseInt(value);
+    const number = isFloat && decimals <= 2 ? parseFloat(value).toFixed(decimals) : parseInt(value);
 
     return !isNaN(value) && number.toString() === value;
 }
