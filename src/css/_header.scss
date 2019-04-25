@@ -1,32 +1,35 @@
 .header {
     background-color: #fff;
     border-bottom: 2px solid #ee7033;
+    box-shadow: 0 1px 1px #968f84;
     height: $headerHeight / 2;
     padding: $headerPaddingY / 2 $paddingX / 2;
-    box-shadow: 0 1px 1px #968f84;
-    .header-logo {
-        height: $headerImageHeight / 2;
+}
+.header__logo {
+    height: $headerImageHeight / 2;
+}
+.header__transaction-toggle {
+    cursor: pointer;
+    float: right;
+    height: $headerImageHeight / 2;
+    img {
+        height: 100%;
+        opacity: 0.7;
     }
-    .header-transaction-toggle {
-        float: right;
-        height: $headerImageHeight / 2;
-        cursor: pointer;
-        img {
-            height: 100%;
-            opacity: 0.7;
-        }
-        &:hover img {
-            opacity: 1;
-        }
+    &:hover img {
+        opacity: 1;
     }
-    @media (min-width: 700px) and (min-height: 500px) {
+}
+
+@media (min-width: 700px) and (min-height: 500px) {
+    .header {
         height: $headerHeight;
         padding: $headerPaddingY $paddingX;
-        .header-logo {
-            height: $headerImageHeight;
-        }
-        .header-transaction-toggle {
-            display: none;
-        }
+    }
+    .header__logo {
+        height: $headerImageHeight;
+    }
+    .header__transaction-toggle {
+        display: none;
     }
 }

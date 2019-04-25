@@ -7,13 +7,33 @@
 </head>
 <body>
     <header class="header">
-        <img class="header-logo" src="/img/logo.jpg" alt="Peachtree bank logo">
-        <span class="header-transaction-toggle">
-            <img src="/img/transaction.svg" alt="transaction icon">
+        <img class="header__logo" src="./img/logo.jpg" alt="Peachtree bank logo">
+        <span class="header__transaction-toggle">
+            <img src="./img/transaction.svg" alt="transaction icon">
         </span>
     </header>
-    <main class="content">
-
+    <main class="main-content">
+        <form id="transaction-form" class="transaction-form">
+            <div class="transaction-form__header">
+                <img class="transaction-form__icon" src="./img/arrows.png">
+                <span class="transaction-form__title">Make a Transfer</span>
+            </div>
+            <div class="transaction-form__body">
+                <div class="transaction-form__input-block">
+                    <label class="transaction-form__input-label" for="from-account">From account</label>
+                    <input id="from-account" class="transaction-form__input-field" />
+                </div>
+                <div class="transaction-form__input-block">
+                    <label class="transaction-form__input-label" for="to-account">To account</label>
+                    <input id="to-account" class="transaction-form__input-field" placeholder="Georgia Power Electric Company" />
+                </div>
+                <div class="transaction-form__input-block transaction-form__input-block--amount">
+                    <label class="transaction-form__input-label" for="amount">Amount</label>
+                    <input id="amount" class="transaction-form__input-field transaction-form__input-field--amount" placeholder="0.00" />
+                </div>
+                <button class="transaction-form__submit" type="submit">Submit</button>
+            </div>
+        </form>
     </main>
 </body>
 </html>

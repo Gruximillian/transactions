@@ -1,0 +1,84 @@
+.transaction-form {
+    //display: none;
+    margin: auto;
+    max-width: 320px;
+}
+.transaction-form__header {
+    background-color: #0c8397;
+    color: #fff;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+.transaction-form__icon {
+    left: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.transaction-form__title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.transaction-form__body {
+    background-color: #fff;
+    padding: 35px 20px;
+}
+.transaction-form__input-block {
+    margin-bottom: 25px;
+}
+.transaction-form__input-label {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.transaction-form__input-field {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 300;
+    outline: none;
+    padding: 3px 0;
+    width: 100%;
+}
+.transaction-form__input-block--amount {
+    position: relative;
+    &::before {
+        bottom: 5px;
+        color: #aaa;
+        content: '$';
+        font-size: 16px;
+        font-weight: 300;
+        position: absolute;
+    }
+}
+.transaction-form__input-field--amount {
+    padding-left: 15px;
+}
+.transaction-form__submit {
+    background-color: #ee7033;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    max-width: 100%;
+    outline: none;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.2s 0s ease-in-out;
+    width: 200px;
+    &:hover,
+    &:focus {
+        background-color: darken(#ee7033, 10%);
+    }
+}
+@media (min-width: 268px) {
+    .transaction-form__submit {
+        margin-left: calc(100% - 200px);
+    }
+}
