@@ -1,25 +1,29 @@
 const globalStore = require('./globalStore');
+const merchantData = require('./data/merchant-list').data;
+const transactionsData = require('./data/transactions').data;
 
 module.exports = {
     init() {
         this.form = document.querySelector('#transaction-form');
         this.inputs = this.form.querySelectorAll('input');
         this.submitButton = this.form.querySelector('#submit-button');
+        // console.log(merchantData);
+        // console.log(transactionsData);
 
         onStateChange(this.inputs);
         clearForm(this.inputs);
         addInputEvents(this.inputs);
         this.form.addEventListener('submit', handleSubmit.bind(this));
-        document.addEventListener('changed.toAccountValid', validateForm.bind(this));
+        document.addEventListener('changed.merchantValid', validateForm.bind(this));
         document.addEventListener('changed.amountValid', validateForm.bind(this));
     },
 };
 
 const defaultState = {
-    fromAccount: 'Free Checking(4692) - $5824.76',
-    toAccount: '',
+    fromAccount: 'Free Checking(4692) - ${{balance}}',
+    merchant: '',
     amount: '',
-    toAccountValid: false,
+    merchantValid: false,
     amountValid: false,
 };
 
@@ -47,7 +51,7 @@ const store = {
 
 function onStateChange(inputs) {
     handleInputStateChange('fromAccount', inputs);
-    handleInputStateChange('toAccount', inputs);
+    handleInputStateChange('merchant', inputs);
     handleInputStateChange('amount', inputs);
 }
 
@@ -60,10 +64,6 @@ function handleInputStateChange(key, inputs) {
     });
 }
 
-function isEmpty(value) {
-    return value.trim() === '';
-}
-
 function isNumber(value) {
     const isFloat = value.indexOf('.') !== -1;
     const decimalPart = isFloat && value.split('.')[1];
@@ -74,12 +74,18 @@ function isNumber(value) {
 }
 
 function isValidAmount(value) {
-    return Number(value) > 0 && Number(value) <= 500;
+    const balance = globalStore.getState().balance;
+    const number = Number(value);
+    return number > 0 && number <= 500 && number <= balance;
+}
+
+function isValidMerchant(value) {
+    return merchantData.some(data => data.merchant === value)
 }
 
 function validateForm() {
-    const { toAccountValid, amountValid } = store.getState();
-    if (toAccountValid && amountValid) {
+    const { merchantValid, amountValid } = store.getState();
+    if (merchantValid && amountValid) {
         this.submitButton.removeAttribute('disabled');
     } else {
         this.submitButton.setAttribute('disabled', 'disabled');
@@ -89,7 +95,11 @@ function validateForm() {
 function validateProperty(target) {
     const property = target.id;
     const value = target.value;
-    let valid = !isEmpty(value);
+    let valid = value.trim() !== '';
+
+    if (property === 'merchant') {
+        valid = valid && isValidMerchant(value);
+    }
 
     if (property === 'amount') {
         valid = valid && isNumber(value) && isValidAmount(value);
@@ -118,8 +128,10 @@ function handleInput(e) {
 
 function handleSubmit(e) {
     e.preventDefault();
-    const state = store.getState();
-    globalStore.setState({currenttransaction: state});
+    const { amount } = store.getState();
+    const { balance } = globalStore.getState();
+    const newBalance = balance * 100 - amount * 100;
+    globalStore.setState({ balance: newBalance / 100});
     clearForm(this.inputs);
 }
 
@@ -129,5 +141,9 @@ function clearForm(inputs) {
     for (let i = 0; i < inputsNumber; i++) {
         inputs[i].value = '';
     }
-    store.setState(defaultState);
+    console.log(globalStore.getState().balance);
+    store.setState({
+        ...defaultState,
+        fromAccount: defaultState.fromAccount.replace('{{balance}}', globalStore.getState().balance)
+    });
 }

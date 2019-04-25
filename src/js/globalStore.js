@@ -1,6 +1,6 @@
 module.exports = {
     state: {
-        currenttransaction: {}
+        balance: 1000
     },
 
     getState() {
