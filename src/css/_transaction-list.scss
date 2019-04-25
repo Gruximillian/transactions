@@ -1,0 +1,28 @@
+.transaction-list {
+    margin: 30px auto;
+    max-width: 860px;
+}
+.transaction-list__header {
+    background-color: #0c8397;
+    color: #fff;
+    font-size: 20px;
+    height: 60px;
+    line-height: 60px;
+    position: relative;
+}
+.transaction-list__icon {
+    height: 45%;
+    left: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.transaction-list__title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+.transaction-list__body {
+    background-color: #fff;
+    padding: 35px 20px;
+}
