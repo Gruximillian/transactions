@@ -43,6 +43,12 @@
     padding: 3px 0;
     width: 100%;
 }
+.transaction-form__input-field.invalid {
+    border-bottom-color: #d22;
+}
+.transaction-form__input-field[disabled] {
+    background-color: #fff;
+}
 .transaction-form__input-block--amount {
     position: relative;
     &::before {
@@ -76,6 +82,9 @@
     &:focus {
         background-color: darken(#ee7033, 10%);
     }
+}
+.transaction-form__submit[disabled] {
+    background-color: #aaa;
 }
 @media (min-width: 268px) {
     .transaction-form__submit {
