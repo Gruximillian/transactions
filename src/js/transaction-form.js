@@ -64,25 +64,6 @@ function handleInputStateChange(key, inputs) {
     });
 }
 
-function isNumber(value) {
-    const isFloat = value.indexOf('.') !== -1;
-    const decimalPart = isFloat && value.split('.')[1];
-    const decimals = decimalPart && decimalPart.length;
-    const number = isFloat && decimals <= 2 ? parseFloat(value).toFixed(decimals) : parseInt(value);
-
-    return !isNaN(value) && number.toString() === value;
-}
-
-function isValidAmount(value) {
-    const balance = globalStore.getState().balance;
-    const number = Number(value);
-    return number > 0 && number <= 500 && number <= balance;
-}
-
-function isValidMerchant(value) {
-    return merchantData.some(data => data.merchant === value)
-}
-
 function validateForm() {
     const { merchantValid, amountValid } = store.getState();
     if (merchantValid && amountValid) {
@@ -157,4 +138,23 @@ function clearForm(inputs) {
         ...defaultState,
         fromAccount: defaultState.fromAccount.replace('{{balance}}', globalStore.getState().balance)
     });
+}
+
+function isNumber(value) {
+    const isFloat = value.indexOf('.') !== -1;
+    const decimalPart = isFloat && value.split('.')[1];
+    const decimals = decimalPart && decimalPart.length;
+    const number = isFloat && decimals <= 2 ? parseFloat(value).toFixed(decimals) : parseInt(value);
+
+    return !isNaN(value) && number.toString() === value;
+}
+
+function isValidAmount(value) {
+    const balance = globalStore.getState().balance;
+    const number = Number(value);
+    return number > 0 && number <= 500 && number <= balance;
+}
+
+function isValidMerchant(value) {
+    return merchantData.some(data => data.merchant === value);
 }

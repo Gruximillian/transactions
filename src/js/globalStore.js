@@ -1,7 +1,10 @@
+const transactionsData = require('./data/transactions').data;
+
 module.exports = {
     state: {
         balance: 1000,
-        currentTransaction: null
+        currentTransaction: null,
+        transactions: transactionsData
     },
 
     getState() {

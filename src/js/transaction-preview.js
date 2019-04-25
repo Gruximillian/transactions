@@ -1,6 +1,5 @@
 const globalStore = require('./globalStore');
 const merchantData = require('./data/merchant-list').data;
-const transactionsData = require('./data/transactions').data;
 
 module.exports = {
     init() {
@@ -21,11 +20,20 @@ module.exports = {
 };
 
 function performTransaction() {
-    const { balance, currentTransaction: { amount } } = globalStore.getState();
+    const { balance, currentTransaction: { merchant, amount } } = globalStore.getState();
     const newBalance = balance * 100 - amount * 100;
+    const transactions = globalStore.getState().transactions;
+    const merchantObject = merchantData.filter(data => data.merchant === merchant)[0];
+    const newTransaction = {
+        ...merchantObject,
+        amount,
+        transactionDate: Date.now()
+    };
+
     globalStore.setState({
         balance: newBalance / 100,
-        currentTransaction: null
+        currentTransaction: null,
+        transactions: [...transactions, newTransaction]
     });
 }
 
