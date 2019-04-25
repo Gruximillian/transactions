@@ -1,0 +1,68 @@
+.transaction-preview {
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.transaction-preview__content {
+    margin: $headerHeight / 2 auto;
+    max-width: 520px;
+    width: 90%;
+}
+.transaction-preview__header {
+    color: #fff;
+    background-color: #ee7033;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.transaction-preview__body {
+    background-color: #fff;
+    padding: 20px;
+}
+.transaction-preview__details {
+    margin: 15px 0;
+    color: #555;
+}
+.transaction-preview__label {
+    color: #000;
+    display: inline-block;
+    width: 120px;
+}
+.transaction-preview__value {
+    display: inline-block;
+    width: calc(100% - 130px);
+    vertical-align: top;
+}
+.transaction-preview__controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+.transaction-preview__button {
+    background-color: #0c8397;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    height: 40px;
+    outline: none;
+    padding: 0;
+    text-transform: uppercase;
+    transition: background-color 0.2s 0s ease-in-out;
+    width: 45%;
+    &:hover,
+    &:focus {
+        background-color: darken(#0c8397, 10%);
+    }
+}
+
+@media (min-width: 700px) and (min-height: 500px) {
+    .transaction-preview__content {
+        margin-top: $headerHeight;
+    }
+}

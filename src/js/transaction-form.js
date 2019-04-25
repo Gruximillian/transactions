@@ -1,21 +1,21 @@
 const globalStore = require('./globalStore');
 const merchantData = require('./data/merchant-list').data;
-const transactionsData = require('./data/transactions').data;
 
 module.exports = {
     init() {
         this.form = document.querySelector('#transaction-form');
         this.inputs = this.form.querySelectorAll('input');
         this.submitButton = this.form.querySelector('#submit-button');
-        // console.log(merchantData);
-        // console.log(transactionsData);
 
         onStateChange(this.inputs);
         clearForm(this.inputs);
         addInputEvents(this.inputs);
+
         this.form.addEventListener('submit', handleSubmit.bind(this));
         document.addEventListener('changed.merchantValid', validateForm.bind(this));
         document.addEventListener('changed.amountValid', validateForm.bind(this));
+        document.addEventListener('changed.currentTransaction', toggleForm.bind(this));
+        document.addEventListener('changed.balance', () => clearForm(this.inputs));
     },
 };
 
@@ -128,11 +128,22 @@ function handleInput(e) {
 
 function handleSubmit(e) {
     e.preventDefault();
-    const { amount } = store.getState();
-    const { balance } = globalStore.getState();
-    const newBalance = balance * 100 - amount * 100;
-    globalStore.setState({ balance: newBalance / 100});
-    clearForm(this.inputs);
+    const { fromAccount, merchant, amount } = store.getState();
+    const transaction = {
+        fromAccount,
+        merchant,
+        amount
+    };
+    globalStore.setState({ currentTransaction: transaction });
+}
+
+function toggleForm() {
+    const currentTransaction = globalStore.getState().currentTransaction;
+    if (currentTransaction) {
+        this.form.classList.add('hide');
+    } else {
+        this.form.classList.remove('hide');
+    }
 }
 
 function clearForm(inputs) {
@@ -141,7 +152,7 @@ function clearForm(inputs) {
     for (let i = 0; i < inputsNumber; i++) {
         inputs[i].value = '';
     }
-    console.log(globalStore.getState().balance);
+
     store.setState({
         ...defaultState,
         fromAccount: defaultState.fromAccount.replace('{{balance}}', globalStore.getState().balance)

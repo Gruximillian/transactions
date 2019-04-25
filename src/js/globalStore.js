@@ -1,6 +1,7 @@
 module.exports = {
     state: {
-        balance: 1000
+        balance: 1000,
+        currentTransaction: null
     },
 
     getState() {
@@ -15,7 +16,7 @@ module.exports = {
 
         Object.keys(newState).forEach(key => {
             if (newState.hasOwnProperty(key)) {
-                const event = new Event(`changed.${key.toLowerCase()}`);
+                const event = new Event(`changed.${key}`);
                 document.dispatchEvent(event);
             }
         });
