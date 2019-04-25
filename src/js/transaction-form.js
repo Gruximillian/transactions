@@ -65,8 +65,16 @@ function isEmpty(value) {
 }
 
 function isNumber(value) {
-    const number = Number(value);
+    const isFloat = value.indexOf('.') !== -1;
+    const decimalPart = isFloat && value.split('.')[1];
+    const decimals = decimalPart && decimalPart.length;
+    const number = isFloat ? parseFloat(value).toFixed(decimals) : parseInt(value);
+
     return !isNaN(value) && number.toString() === value;
+}
+
+function isValidAmount(value) {
+    return Number(value) > 0 && Number(value) <= 500;
 }
 
 function validateForm() {
@@ -84,7 +92,7 @@ function validateProperty(target) {
     let valid = !isEmpty(value);
 
     if (property === 'amount') {
-        valid = valid && isNumber(value);
+        valid = valid && isNumber(value) && isValidAmount(value);
     }
 
     let action = valid ? 'remove' : 'add';
