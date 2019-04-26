@@ -102,6 +102,7 @@
 }
 .transaction-panel__date-column {
     width: 80px;
+    font-weight: 300;
 }
 .transaction-panel__image-column {
     height: 40px;
@@ -110,6 +111,16 @@
 }
 .transaction-panel__merchant-image {
     height: 100%;
+}
+.transaction-panel__transaction-merchant {
+    font-weight: bold;
+}
+.transaction-panel__transaction-type {
+    font-weight: 300;
+}
+.transaction-panel__transaction-amount {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 @media (min-width: 650px) {

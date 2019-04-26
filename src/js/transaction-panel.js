@@ -33,17 +33,17 @@ function createTransaction(transaction) {
 <div class="transaction-panel__transaction">
     <div class="transaction-panel__category-marker" style="background-color: ${categoryCode};"></div>
     <div class="transaction-panel__row">
-        <div class="transaction-panel__transaction-column transaction-panel__date-column">${date}</div>
-        <div class="transaction-panel__transaction-column transaction-panel__image-column">
+        <div class="transaction-panel__date-column">${date}</div>
+        <div class="transaction-panel__image-column">
             <img class="transaction-panel__merchant-image" src="${merchantLogo}">
         </div>
     </div>
     <div class="transaction-panel__row">
-        <div class="transaction-panel__transaction-column">
-            <div>${merchant}</div>
-            <div>${transactionType}</div>
+        <div>
+            <div class="transaction-panel__transaction-merchant">${merchant}</div>
+            <div class="transaction-panel__transaction-type">${transactionType}</div>
         </div>
-        <div class="transaction-panel__transaction-column">-$${amount}</div>
+        <div class="transaction-panel__transaction-amount">-$${amount}</div>
     </div>
 </div>
 `
