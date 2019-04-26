@@ -6,5 +6,9 @@ const transactionPanel = require('./transaction-panel');
     transactionForm.init();
     transactionPreview.init();
     transactionPanel.init();
+
+    window.addEventListener('load', () => {
+        document.body.classList.remove('loading');
+    });
 })();
 
