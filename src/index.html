@@ -82,10 +82,10 @@
                     <input id="transaction-panel__search" class="transaction-panel__search" placeholder="Search by typing..." />
                     <div class="transaction-panel__sort">
                         <span class="transaction-panel__sort-label">Sort by</span>
-                        <div class="transaction-panel__sort-controls">
-                            <button class="transaction-panel__sort-button">Date</button>
-                            <button class="transaction-panel__sort-button">Beneficiary</button>
-                            <button class="transaction-panel__sort-button">Amount</button>
+                        <div id="transaction-panel__sort-controls" class="transaction-panel__sort-controls" data-sort-order="ascending">
+                            <button id="sortBy-transactionDate" data-sort-by="transactionDate" class="transaction-panel__sort-button" data-sort-active="false">Date</button>
+                            <button id="sortBy-merchant" data-sort-by="merchant" class="transaction-panel__sort-button" data-sort-active="false">Beneficiary</button>
+                            <button id="sortBy-amount" data-sort-by="amount" class="transaction-panel__sort-button" data-sort-active="true">Amount</button>
                         </div>
                     </div>
                 </div>

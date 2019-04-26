@@ -4,7 +4,9 @@ module.exports = {
     state: {
         balance: 1000,
         currentTransaction: null,
-        transactions: transactionsData
+        transactions: transactionsData,
+        sortedBy: 'transactionDate',
+        sortingOrder: 'descending'
     },
 
     getState() {
