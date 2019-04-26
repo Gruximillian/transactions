@@ -75,14 +75,29 @@
 }
 .transaction-panel__transaction {
     border: 2px solid $borderColor;
-    border-left-width: 10px;
+    border-top: none;
+    border-left: none;
     height: 124px;
     padding: 10px 20px 10px 25px;
+    position: relative;
+    &:first-child {
+        border-top: 2px solid $borderColor;
+        .transaction-panel__category-marker {
+            top: -2px;
+        }
+    }
+}
+.transaction-panel__category-marker {
+    bottom: -2px;
+    left: 0;
+    position: absolute;
+    top: -1px;
+    width: 10px;
 }
 .transaction-panel__row {
-    height: 50px;
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 50px;
     justify-content: space-between;
 }
 .transaction-panel__date-column {
