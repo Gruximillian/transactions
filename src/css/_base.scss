@@ -1,0 +1,28 @@
+body *,
+body *::before,
+body *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../assets/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Kanit, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.transaction-preview-active::after {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}

@@ -1,6 +1,10 @@
-body {
-    background-color: orange;
-    h1 {
-        background-color: red;
-    }
-}
+@import url('https://fonts.googleapis.com/css?family=Kanit:300,400');
+
+@import 'variables';
+@import 'base';
+@import 'header';
+@import 'main-content';
+@import 'transaction-form';
+@import 'transaction-preview';
+@import 'transaction-panel';
+@import 'helpers';
