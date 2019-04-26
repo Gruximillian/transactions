@@ -87,8 +87,15 @@
 .transaction-form__submit[disabled] {
     background-color: #aaa;
 }
+
 @media (min-width: 268px) {
     .transaction-form__submit {
         margin-left: calc(100% - 200px);
+    }
+}
+@media (min-width: 1200px) {
+    .transaction-form {
+        width: 25%;
+        flex-grow: 0;
     }
 }

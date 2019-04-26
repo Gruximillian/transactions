@@ -1,6 +1,6 @@
 .transaction-list {
     margin: 30px auto;
-    max-width: 860px;
+    max-width: 800px;
 }
 .transaction-list__header {
     background-color: #0c8397;
@@ -25,4 +25,69 @@
 .transaction-list__body {
     background-color: #fff;
     padding: 35px 20px;
+}
+.transaction-list__search-sort {
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.transaction-list__search {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 300;
+    height: 35px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.transaction-list__sort {
+    display: flex;
+    flex-direction: column;
+}
+.transaction-list__sort-label {
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+}
+.transaction-list__sort-controls {
+    display: flex;
+    max-width: 100%;
+}
+.transaction-list__sort-button {
+    border: 1px solid #aaa;
+    border-radius: 0;
+    flex-grow: 1;
+    height: 35px;
+    max-width: 120px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    &:first-child {
+        border-right: none;
+    }
+    &:last-child {
+        border-left: none;
+    }
+}
+
+@media (min-width: 800px) {
+    .transaction-list__search-sort {
+        flex-direction: row;
+    }
+    .transaction-list__search {
+        width: 45%;
+    }
+    .transaction-list__sort {
+        flex-direction: row;
+    }
+    .transaction-list__sort-button {
+        padding: 0 20px;
+    }
+}
+@media (min-width: 1200px) {
+    .transaction-list {
+        margin-top: 0;
+        flex-grow: 1;
+    }
 }
