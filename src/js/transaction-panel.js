@@ -24,6 +24,7 @@ module.exports = {
             renderTransactions.call(this, transactions);
         });
 
+        updateSortButtons.call(this);
         this.sortByDateButton.addEventListener('click', (e) => {
             updateSortState.call(this, e.target);
             updateSortButtons.call(this);
