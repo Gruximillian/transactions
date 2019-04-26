@@ -2,6 +2,7 @@
     //display: none;
     margin: auto;
     max-width: 320px;
+    box-shadow: 0 0 5px -1px #555;
 }
 .transaction-form__header {
     background-color: #0c8397;
@@ -95,7 +96,8 @@
 }
 @media (min-width: 1200px) {
     .transaction-form {
+        max-width: unset;
         width: 25%;
-        flex-grow: 0;
+        display: inline-block;
     }
 }

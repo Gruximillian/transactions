@@ -1,8 +1,8 @@
-.transaction-list {
+.transaction-panel {
     margin: 30px auto;
-    max-width: 800px;
+    box-shadow: 0 0 5px -1px #555;
 }
-.transaction-list__header {
+.transaction-panel__header {
     background-color: #0c8397;
     color: #fff;
     font-size: 20px;
@@ -10,29 +10,29 @@
     line-height: 60px;
     position: relative;
 }
-.transaction-list__icon {
+.transaction-panel__icon {
     height: 45%;
     left: 15px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
-.transaction-list__title {
+.transaction-panel__title {
     display: inline-block;
     text-align: center;
     width: 100%;
 }
-.transaction-list__body {
+.transaction-panel__body {
     background-color: #fff;
     padding: 35px 20px;
 }
-.transaction-list__search-sort {
+.transaction-panel__search-sort {
     padding-left: 10px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
-.transaction-list__search {
+.transaction-panel__search {
     border: none;
     border-bottom: 1px solid #ddd;
     font-family: inherit;
@@ -42,20 +42,20 @@
     margin-bottom: 10px;
     width: 100%;
 }
-.transaction-list__sort {
+.transaction-panel__sort {
     display: flex;
     flex-direction: column;
 }
-.transaction-list__sort-label {
+.transaction-panel__sort-label {
     height: 35px;
     line-height: 35px;
     margin-right: 10px;
 }
-.transaction-list__sort-controls {
+.transaction-panel__sort-controls {
     display: flex;
     max-width: 100%;
 }
-.transaction-list__sort-button {
+.transaction-panel__sort-button {
     border: 1px solid #aaa;
     border-radius: 0;
     flex-grow: 1;
@@ -72,22 +72,25 @@
 }
 
 @media (min-width: 800px) {
-    .transaction-list__search-sort {
+    .transaction-panel__search-sort {
         flex-direction: row;
     }
-    .transaction-list__search {
+    .transaction-panel__search {
         width: 45%;
     }
-    .transaction-list__sort {
+    .transaction-panel__sort {
         flex-direction: row;
     }
-    .transaction-list__sort-button {
+    .transaction-panel__sort-button {
         padding: 0 20px;
     }
 }
 @media (min-width: 1200px) {
-    .transaction-list {
+    .transaction-panel {
         margin-top: 0;
-        flex-grow: 1;
+        width: calc(75% - 30px);
+        display: inline-block;
+        float: right;
+        vertical-align: top;
     }
 }
