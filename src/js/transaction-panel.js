@@ -20,11 +20,11 @@ module.exports = {
 };
 
 const timeFormat = {
-    month: 'short', day: 'numeric'
+    month: 'short', day: 'numeric', year: 'numeric'
 };
 const dateFormatter = new Intl.DateTimeFormat('us-EN', timeFormat).format;
 
-function addTransaction(transaction) {
+function createTransaction(transaction) {
     const { amount, categoryCode, merchant, merchantLogo, transactionDate, transactionType } = transaction;
     const date = dateFormatter(transactionDate);
 
@@ -52,5 +52,5 @@ function addTransaction(transaction) {
 function renderTransactions() {
     const { transactions } = globalStore.getState();
 
-    this.transactionList.innerHTML = transactions.map(addTransaction).join('');
+    this.transactionList.innerHTML = transactions.map(createTransaction).join('');
 }

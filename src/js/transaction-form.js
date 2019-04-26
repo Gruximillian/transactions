@@ -14,7 +14,6 @@ module.exports = {
         this.form.addEventListener('submit', handleSubmit.bind(this));
         document.addEventListener('changed.merchantValid', validateForm.bind(this));
         document.addEventListener('changed.amountValid', validateForm.bind(this));
-        document.addEventListener('changed.currentTransaction', toggleForm.bind(this));
         document.addEventListener('changed.balance', () => clearForm(this.inputs));
     },
 };
@@ -116,15 +115,6 @@ function handleSubmit(e) {
         amount
     };
     globalStore.setState({ currentTransaction: transaction });
-}
-
-function toggleForm() {
-    const currentTransaction = globalStore.getState().currentTransaction;
-    if (currentTransaction) {
-        this.form.classList.add('hide');
-    } else {
-        this.form.classList.remove('hide');
-    }
 }
 
 function clearForm(inputs) {

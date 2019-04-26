@@ -45,8 +45,10 @@ function toggleTransactionPreview() {
     const currentTransaction = globalStore.getState().currentTransaction;
     if (currentTransaction) {
         this.transactionPreview.classList.remove('hide');
+        document.body.classList.add('transaction-preview-active');
     } else {
         this.transactionPreview.classList.add('hide');
+        document.body.classList.remove('transaction-preview-active');
     }
 }
 

@@ -1,13 +1,16 @@
 .transaction-preview {
-    background-color: rgba(0, 0, 0, 0.5);
-    bottom: 0;
-    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
-    right: 0;
-    top: 0;
+    top: -3000px;
+    left: -3000px;
+    right: -3000px;
+    bottom: -3000px;
 }
 .transaction-preview__content {
-    margin: $headerHeight / 2 auto;
+    position: fixed;
+    top: $headerHeight / 2;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: 520px;
     width: 90%;
 }
