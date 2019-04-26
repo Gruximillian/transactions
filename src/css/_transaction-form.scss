@@ -2,7 +2,7 @@
     //display: none;
     margin: auto;
     max-width: 320px;
-    box-shadow: 0 0 5px -1px #555;
+    box-shadow: 0 0 5px -1px $shadowColor;
 }
 .transaction-form__header {
     background-color: #0c8397;
@@ -37,7 +37,7 @@
 }
 .transaction-form__input-field {
     border: none;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid $borderColor;
     font-family: inherit;
     font-size: 16px;
     font-weight: 300;
