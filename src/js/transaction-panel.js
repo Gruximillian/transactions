@@ -19,7 +19,38 @@ module.exports = {
     },
 };
 
+const timeFormat = {
+    month: 'short', day: 'numeric'
+};
+const dateFormatter = new Intl.DateTimeFormat('us-EN', timeFormat).format;
+
+function addTransaction(transaction) {
+    const { amount, categoryCode, merchant, merchantLogo, transactionDate, transactionType } = transaction;
+    const date = dateFormatter(transactionDate);
+
+    return (
+`
+<div class="transaction-panel__transaction" style="border-left-color: ${categoryCode};">
+    <div class="transaction-panel__row">
+        <div class="transaction-panel__transaction-column transaction-panel__date-column">${date}</div>
+        <div class="transaction-panel__transaction-column transaction-panel__image-column">
+            <img class="transaction-panel__merchant-image" src="${merchantLogo}">
+        </div>
+    </div>
+    <div class="transaction-panel__row">
+        <div class="transaction-panel__transaction-column">
+            <div>${merchant}</div>
+            <div>${transactionType}</div>
+        </div>
+        <div class="transaction-panel__transaction-column">-$${amount}</div>
+    </div>
+</div>
+`
+    );
+}
+
 function renderTransactions() {
     const { transactions } = globalStore.getState();
-    // this.transactionList.textContent = `There are ${transactions.length} transactions`;
+
+    this.transactionList.innerHTML = transactions.map(addTransaction).join('');
 }
