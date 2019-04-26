@@ -97,25 +97,23 @@
         </section>
 
         <section id="transaction-preview" class="transaction-preview hide">
-            <div class="transaction-preview__content">
-                <div class="transaction-preview__header">
-                    <span>Transaction preview</span>
+            <div class="transaction-preview__header">
+                <span>Transaction preview</span>
+            </div>
+            <div class="transaction-preview__body">
+                <div class="transaction-preview__details">
+                    <span class="transaction-preview__label">From account:</span> <span class="transaction-preview__value" id="transaction-preview__fromAccount"></span>
                 </div>
-                <div class="transaction-preview__body">
-                    <div class="transaction-preview__details">
-                        <span class="transaction-preview__label">From account:</span> <span class="transaction-preview__value" id="transaction-preview__fromAccount"></span>
-                    </div>
-                    <div class="transaction-preview__details">
-                        <span class="transaction-preview__label">To account:</span> <span class="transaction-preview__value" id="transaction-preview__merchant"></span>
-                    </div>
-                    <div class="transaction-preview__details">
-                        <span class="transaction-preview__label">Amount:</span> <span class="transaction-preview__value" id="transaction-preview__amount"></span>
-                    </div>
+                <div class="transaction-preview__details">
+                    <span class="transaction-preview__label">To account:</span> <span class="transaction-preview__value" id="transaction-preview__merchant"></span>
+                </div>
+                <div class="transaction-preview__details">
+                    <span class="transaction-preview__label">Amount:</span> <span class="transaction-preview__value" id="transaction-preview__amount"></span>
+                </div>
 
-                    <div class="transaction-preview__controls">
-                        <button id="transaction-confirm" class="transaction-preview__button">Transfer</button>
-                        <button id="transaction-cancel" class="transaction-preview__button">Cancel</button>
-                    </div>
+                <div class="transaction-preview__controls">
+                    <button id="transaction-confirm" class="transaction-preview__button">Transfer</button>
+                    <button id="transaction-cancel" class="transaction-preview__button">Cancel</button>
                 </div>
             </div>
         </section>
