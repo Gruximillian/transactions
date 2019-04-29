@@ -1,5 +1,9 @@
 # Transactions
 
+Project can be run by double clicking on the index.html file in the 'dist' folder.
+
+To be able to make changes, install the dependencies and run in development mode:
+
 Install dependencies:
 
 `yarn` or `npm install`
